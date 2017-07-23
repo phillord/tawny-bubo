@@ -98,6 +98,9 @@
 (deftest entity-pattern
   (is (out= "entity-pattern")))
 
+(deftest apply-string
+  (is (out= "apply-string")))
+
 (deftest apply-csv
   (with-files "csv-to-apply.csv"
     (is (out= "apply-csv"))))
