@@ -11,8 +11,10 @@
 (defonce
   ^{:doc "If non-nil do not clear sandbox files."}
   preserve-files nil)
-;;(def preserve-files nil)
-;;(def preserve-files true)
+
+;; Forms for local eval
+;; (def preserve-files nil)
+;; (def preserve-files true)
 
 (defn- sandbox-command
   "Run commands from dev-resources in sandbox. "
