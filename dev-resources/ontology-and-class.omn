@@ -1,0 +1,30 @@
+## This file was created by Tawny-OWL
+## It should not be edited by hand
+Prefix: o: <http://example.com/o#>
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+
+Ontology: <http://example.com/o>
+
+Import: <http://www.purl.org/ontolink/tawny>
+
+Annotations: 
+    <http://www.purl.org/ontolink/tawny#name> "o"@en
+
+AnnotationProperty: <http://www.purl.org/ontolink/tawny#name>
+
+    
+Datatype: rdf:PlainLiteral
+
+    
+Class: o:C
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "C"@en
+    
+    

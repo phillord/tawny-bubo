@@ -1,0 +1,15 @@
+#!/usr/bin/env boot
+
+(set-env! :dependencies
+          '[[uk.org.russet/tawny-owl "2.0.0-SNAPSHOT"]
+            [uk.org.russet/tawny-bubo "0.1.0-SNAPSHOT"]])
+
+(defn -main [& args]
+  (load-file (first args)))
+
+(require 'tawny.bubo.util)
+(tawny.bubo.util/prepare *ns*)
+
+
+(clojure.core/use 'tawny.bubo.core)
+(clojure.core/use 'tawny.english)
