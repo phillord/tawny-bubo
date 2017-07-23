@@ -1,0 +1,6 @@
+/.lein-failures
+/.nrepl-history
+/.nrepl-port
+/pom.xml
+/target
+/boot-test/apply-csv.clj
