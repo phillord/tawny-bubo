@@ -4,6 +4,10 @@
             [clojure.java.shell :as sh]
             [tawny.bubo.core :refer :all]))
 
+(when-not
+    (.exists (io/file "sandbox"))
+  (.mkdir (io/file "sandbox")))
+
 (defonce
   ^{:doc "If non-nil do not clear sandbox files."}
   preserve-files nil)
