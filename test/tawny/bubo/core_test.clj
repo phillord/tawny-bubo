@@ -93,6 +93,9 @@
 (deftest ontology-and-class
   (is (out= "ontology-and-class")))
 
+(deftest entity-pattern
+  (is (out= "entity-pattern")))
+
 (deftest apply-csv
   (with-files "csv-to-apply.csv"
     (is (out= "apply-csv"))))
