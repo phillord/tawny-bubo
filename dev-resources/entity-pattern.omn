@@ -1,0 +1,129 @@
+## This file was created by Tawny-OWL
+## It should not be edited by hand
+Prefix: o: <http://example.com/o#>
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+
+Ontology: <http://example.com/o>
+
+Import: <http://www.purl.org/ontolink/tawny>
+
+Annotations: 
+    <http://www.purl.org/ontolink/tawny#name> "o"@en
+
+AnnotationProperty: <http://www.purl.org/ontolink/tawny#name>
+
+    
+Datatype: rdf:PlainLiteral
+
+    
+ObjectProperty: o:r
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "r"@en
+    
+    
+ObjectProperty: o:r1
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "r1"@en
+    
+    
+ObjectProperty: o:r2
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "r2"@en
+    
+    
+ObjectProperty: o:r3
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "r3"@en
+    
+    
+ObjectProperty: o:r4
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "r4"@en
+    
+    
+Class: o:a
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "a"@en
+    
+    SubClassOf: 
+        o:r some o:c
+    
+    
+Class: o:a1
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "a1"@en
+    
+    SubClassOf: 
+        o:r1 some o:c1
+    
+    
+Class: o:a2
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "a2"@en
+    
+    SubClassOf: 
+        o:r2 some o:c2
+    
+    
+Class: o:a3
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "a3"@en
+    
+    SubClassOf: 
+        o:r3 some o:c3
+    
+    
+Class: o:a4
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "a4"@en
+    
+    SubClassOf: 
+        o:r4 some o:c4
+    
+    
+Class: o:c
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "c"@en
+    
+    
+Class: o:c1
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "c1"@en
+    
+    
+Class: o:c2
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "c2"@en
+    
+    
+Class: o:c3
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "c3"@en
+    
+    
+Class: o:c4
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "c4"@en
+    
+    
