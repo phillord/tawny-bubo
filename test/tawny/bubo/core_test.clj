@@ -63,6 +63,7 @@
      res)))
 
 (defn out=
+  "Return true if command produces a file identical to output-file."
   ([command]
    (out= (str command ".clj") (str command ".omn")))
   ([command output-file]
