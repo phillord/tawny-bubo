@@ -19,3 +19,69 @@ Annotations:
 AnnotationProperty: <http://www.purl.org/ontolink/tawny#name>
 
     
+Datatype: rdf:PlainLiteral
+
+    
+ObjectProperty: o:r
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "r"@en
+    
+    
+ObjectProperty: o:r1
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "r1"@en
+    
+    
+ObjectProperty: o:r2
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "r2"@en
+    
+    
+Class: o:A
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "A"@en
+    
+    SubClassOf: 
+        o:r some o:B
+    
+    
+Class: o:A1
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "A1"@en
+    
+    SubClassOf: 
+        o:r1 some o:B1
+    
+    
+Class: o:A2
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "A2"@en
+    
+    SubClassOf: 
+        o:r2 some o:B2
+    
+    
+Class: o:B
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "B"@en
+    
+    
+Class: o:B1
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "B1"@en
+    
+    
+Class: o:B2
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "B2"@en
+    
+    

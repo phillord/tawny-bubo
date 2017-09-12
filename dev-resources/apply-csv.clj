@@ -15,5 +15,4 @@
  pattern
  "csv-to-apply.csv")
 
-
 (save :omn)
