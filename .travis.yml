@@ -11,7 +11,7 @@ before_script:
 script:
  - lein test
 jdk:
- - oraclejdk8
+  - openjdk11
 notifications:
    email:
      - travis@russet.org.uk
