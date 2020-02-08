@@ -2,7 +2,7 @@
   :description "Automated Scripting Framework for Tawny-OWL"
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [org.clojure/data.csv "0.1.4"]
-                 [uk.org.russet/tawny-owl "2.0.0-SNAPSHOT"]]
+                 [uk.org.russet/tawny-owl "2.0.0"]]
 
   :license {:name "LGPL"
             :url "http://www.gnu.org/licenses/lgpl-3.0.txt"
