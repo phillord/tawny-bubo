@@ -1,10 +1,10 @@
 # tawny-bubo
 
-A Clojure library designed to ... well, that part is up to you.
+This is an library for running Tawny-OWL in batch
 
 ## Usage
 
-FIXME
+
 
 ## License
 
