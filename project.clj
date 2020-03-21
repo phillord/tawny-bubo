@@ -1,4 +1,4 @@
-(defproject uk.org.russet/tawny-bubo "0.1.1"
+(defproject uk.org.russet/tawny-bubo "0.2.0-SNAPSHOT"
   :description "Automated Scripting Framework for Tawny-OWL"
   :dependencies [[org.clojure/clojure "1.10.1"]
                  [org.clojure/data.csv "0.1.4"]
