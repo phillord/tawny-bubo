@@ -14,6 +14,7 @@
   :release-tasks
   [["vcs" "assert-committed"]
    ["change" "version" "leiningen.release/bump-version" "release"]
+   ;; Update the version number in the binary
    ["file-replace" "bin/bubo" "tawny-bubo \"" "\"]" "version"]
    ["vcs" "commit"]
    ["vcs" "tag"]
@@ -21,7 +22,9 @@
    ["change" "version" "leiningen.release/bump-version"]
    ["file-replace" "bin/bubo" "tawny-bubo \"" "\"]" "version"]
    ["vcs" "commit"]
-   ["vcs" "push"]]
+   ["vcs" "push"]
+   ;; Install so that the binary works also
+   ["install"]]
 
   :aliases
   ;; alias test to also do install; bubo works through the command line and finds
