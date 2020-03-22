@@ -2,7 +2,7 @@
 
 (set-env! :dependencies
           '[[uk.org.russet/tawny-owl "2.0.0"]
-            [uk.org.russet/tawny-bubo "0.1.1-SNAPSHOT"]])
+            [uk.org.russet/tawny-bubo "0.3.0"]])
 
 (defn -main [& args]
   (load-file (first args)))
