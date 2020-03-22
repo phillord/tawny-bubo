@@ -14,13 +14,12 @@
   :release-tasks
   [["vcs" "assert-committed"]
    ["change" "version" "leiningen.release/bump-version" "release"]
-
    ["file-replace" "bin/bubo" "tawny-bubo \"" "\"]" "version"]
-
    ["vcs" "commit"]
    ["vcs" "tag"]
    ["deploy"]
    ["change" "version" "leiningen.release/bump-version"]
+   ["file-replace" "bin/bubo" "tawny-bubo \"" "\"]" "version"]
    ["vcs" "commit"]
    ["vcs" "push"]]
 
