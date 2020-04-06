@@ -1,8 +1,7 @@
 (ns tawny.bubo.xls
   (:require
    [clojure.string :as str]
-   [clojure.java.io :as io]
-   :dependencies [[dk.ative/docjure "1.10.0"]]))
+   [clojure.java.io :as io]))
 (use 'dk.ative.docjure.spreadsheet)
 
 (defn- read-workbook [filename sheet]
