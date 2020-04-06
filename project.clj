@@ -4,6 +4,7 @@
                  [org.clojure/data.csv "0.1.4"]
                  [uk.org.russet/tawny-owl "2.0.0"]
                  [org.slf4j/slf4j-nop "1.7.30"]
+                 [dk.ative/docjure "1.10.0"]
                  ]
 
   :license {:name "LGPL"
