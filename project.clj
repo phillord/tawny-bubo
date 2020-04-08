@@ -27,6 +27,9 @@
    ;; Install so that the binary works also
    ["install"]]
 
+  :profiles {:uberjar {:aot :all}
+             :dev {:plugins [[lein-binplus "0.6.6"]]}}
+  
   :aliases
   ;; alias test to also do install; bubo works through the command line and finds
   ;; the rest of the library from maven, so we must install before we run tests.
