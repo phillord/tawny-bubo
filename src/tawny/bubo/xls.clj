@@ -11,8 +11,8 @@
        (map cell-seq)
        (map #(map read-cell %))))
 
-                                        ;(def workbook (load-workbook "xls-test.xlsx"))
-                                        ;(def sheet (select-sheet "Sheet1" workbook))
+;(def workbook (load-workbook "xls-test.xlsx"))
+;(def sheet (select-sheet "Sheet1" workbook))
 
 (defn xls-apply [f filename sheet]
   (doall
