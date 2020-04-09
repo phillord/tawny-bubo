@@ -1,5 +1,6 @@
 (ns tawny.bubo.cli
   (:require
+   [clojure.main]
    [clojure.string]
    [tawny.bubo.core])
   (:gen-class))
@@ -19,7 +20,7 @@
      (clojure.string/split filename #"[/]"))
     #"[.]")))
 
-(defn -main [& args]
+(defn -main-old [& args]
   (let [file (first args)
         shebang-less-file
         (.getPath
@@ -34,3 +35,20 @@
     (spit shebang-less-file eval-string)
     (binding [tawny.bubo.core/*script-file* file]
       (load-file shebang-less-file))))
+
+(defn blitz-clojure-core [ns]
+  (doseq
+      [[k v] (ns-map ns)
+       :when (= (find-ns 'clojure.core) (:ns (meta v)))]
+    (ns-unmap ns k)))
+
+(defn -main [& args]
+  (clojure.main/with-bindings
+    (in-ns 'user)
+    (blitz-clojure-core *ns*)
+    (require '[clojure.core :as cc])
+    (use 'tawny.bubo.core)
+    (use 'tawny.bubo.util)
+    (use 'tawny.owl)
+    (use 'tawny.english)
+    (clojure.main/load-script (first args))))
