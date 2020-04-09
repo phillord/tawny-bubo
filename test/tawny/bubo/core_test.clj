@@ -4,6 +4,8 @@
             [clojure.java.shell :as sh]
             [tawny.bubo.core :refer :all]))
 
+(println "Loading core_test")
+
 (when-not
     (.exists (io/file "sandbox"))
   (.mkdir (io/file "sandbox")))
@@ -19,9 +21,12 @@
 (defn- sandbox-command
   "Run commands from dev-resources in sandbox. "
   [command]
-  (let [res
-        (sh/sh (str "../dev-resources/" command)
-               :dir "sandbox")]
+  (let [
+        res
+        (sh/sh
+         "../bin/bubo"
+         (str "../dev-resources/" command)
+         :dir "sandbox")]
     (when-not (= 0 (:exit res))
       (throw (Exception.
               (str "Command: " command " produced error "
@@ -88,6 +93,9 @@
 
 (defmethod clojure.test/assert-expr 'out= [msg form]
   (expand-out= msg form))
+
+(deftest empty-test
+  (is (sandbox-command "empty.clj")))
 
 (deftest hello
   (is
