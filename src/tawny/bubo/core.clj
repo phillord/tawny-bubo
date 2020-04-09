@@ -28,7 +28,7 @@
    (save :owl))
   ([format]
    (o/save-ontology
-    (str (stem *script-file*) "." (name format)))))
+    (str (stem *file*) "." (name format)))))
 
 ;; make defpattern add metadata?
 (defn- arity
