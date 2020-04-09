@@ -1,15 +1,8 @@
 language: clojure
 sudo: false
 lein: lein
-before_script:
- - export PATH=$PATH:$PWD/bin/
- - export PATH=$PATH:$PWD/.
- - wget https://github.com/boot-clj/boot-bin/releases/download/latest/boot.sh
- - mv boot.sh boot
- - chmod +x boot
- - boot -u
 script:
- - lein test
+ - lein bin-test
 jdk:
   - openjdk11
 notifications:

@@ -8,7 +8,8 @@
     (ns-unmap ns k)))
 
 (defn prepare [ns]
-  (blitz-clojure-core ns)
   (clojure.core/use 'tawny.owl)
   (clojure.core/use 'tawny.english)
-  (clojure.core/use 'tawny.bubo.core))
+  (clojure.core/use 'tawny.bubo.core)
+  (blitz-clojure-core ns)
+  )
