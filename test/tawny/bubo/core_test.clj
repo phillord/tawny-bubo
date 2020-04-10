@@ -2,7 +2,10 @@
   (:require [clojure.test :refer :all]
             [clojure.java.io :as io]
             [clojure.java.shell :as sh]
+            [clojure.string :as s]
             [tawny.bubo.core :refer :all]))
+
+(println "Loading core_test")
 
 (when-not
     (.exists (io/file "sandbox"))
@@ -16,12 +19,16 @@
 ;; (def preserve-files nil)
 ;; (def preserve-files true)
 
-(defn- sandbox-command
+(defn- sandbox-command [command]
+  (sh/sh
+   "../bin/bubo"
+   (str "../dev-resources/" command)
+   :dir "sandbox"))
+
+(defn- sandbox-command-no-error
   "Run commands from dev-resources in sandbox. "
   [command]
-  (let [res
-        (sh/sh (str "../dev-resources/" command)
-               :dir "sandbox")]
+  (let [res (sandbox-command command)]
     (when-not (= 0 (:exit res))
       (throw (Exception.
               (str "Command: " command " produced error "
@@ -52,7 +59,7 @@
   ([command output-file]
    (let [res
          (do
-           (sandbox-command command)
+           (sandbox-command-no-error command)
            (sh/sh "diff"
                   (str "dev-resources/" output-file)
                   (str "sandbox/" output-file)))]
@@ -72,6 +79,14 @@
           (= "" (:out diff))
           (= "" (:err diff))))))
 
+(defn fetch-error
+  ([command]
+   (let [retn
+         (sandbox-command command)]
+     (is (not= 0 (:exit retn)))
+     (:err retn))))
+
+
 (defn expand-out= [msg form]
   `(let [result#
          ~(if (= 3 (count form))
@@ -88,6 +103,19 @@
 
 (defmethod clojure.test/assert-expr 'out= [msg form]
   (expand-out= msg form))
+
+(deftest empty-test
+  (is (sandbox-command "empty.clj")))
+
+(deftest error-test
+  (let [errors (fetch-error "error.clj")]
+    (is (s/includes? errors "Unable to resolve symbol: this-breaks"))
+    (is (s/includes? errors "./dev-resources/error.clj:4:1"))))
+
+(deftest clojure-core-empty-test
+  (let [errors (fetch-error "clojure-core-empty.clj")]
+    (is (s/includes? errors "Unable to resolve symbol: println"))
+    (is (s/includes? errors "./dev-resources/clojure-core-empty.clj:3:1"))))
 
 (deftest hello
   (is

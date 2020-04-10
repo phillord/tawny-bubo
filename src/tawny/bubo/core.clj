@@ -1,6 +1,8 @@
 (ns tawny.bubo.core
   (:require [tawny.owl :as o]))
 
+(def ^:dynamic *script-file* nil)
+
 (defmacro entity
   "Add type information to parameters for a pattern."
   {:style/indent 1}

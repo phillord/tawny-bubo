@@ -4,3 +4,4 @@
 /pom.xml
 /target
 /boot-test/apply-csv.clj
+/bin
