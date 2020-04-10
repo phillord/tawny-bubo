@@ -20,4 +20,10 @@
   ;; alias test to also do install; bubo works through the command
   ;; line, so we must install before we run tests.
   {"bin-test" ["do" ["bin"] "test"]}
+  :profiles
+  {
+   :fast
+   [:base
+    {:bin {:skip-realign true}}
+    ]}
   )
