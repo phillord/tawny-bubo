@@ -1,10 +1,11 @@
 (defproject uk.org.russet/tawny-bubo "0.3.2-SNAPSHOT"
   :description "Automated Scripting Framework for Tawny-OWL"
-  :dependencies [[org.clojure/clojure "1.10.1"]
+  :dependencies [[cli-matic "0.3.11"]
+                 [org.clojure/clojure "1.10.1"]
                  [org.clojure/data.csv "0.1.4"]
                  [uk.org.russet/tawny-owl "2.0.0"]
                  [org.slf4j/slf4j-nop "1.7.30"]
-                 ]
+                 [say-cheez "0.2.0"]]
 
   :license {:name "LGPL"
             :url "http://www.gnu.org/licenses/lgpl-3.0.txt"
