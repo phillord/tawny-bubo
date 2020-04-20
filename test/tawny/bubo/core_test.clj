@@ -5,8 +5,6 @@
             [clojure.string :as s]
             [tawny.bubo.core :refer :all]))
 
-(println "Loading core_test")
-
 (when-not
     (.exists (io/file "sandbox"))
   (.mkdir (io/file "sandbox")))
@@ -103,6 +101,9 @@
 
 (defmethod clojure.test/assert-expr 'out= [msg form]
   (expand-out= msg form))
+
+(deftest tawny-load
+  (is (require 'tawny.owl)))
 
 (deftest empty-test
   (is (sandbox-command "empty.clj")))

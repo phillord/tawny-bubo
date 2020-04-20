@@ -27,8 +27,12 @@
   ([]
    (save :owl))
   ([format]
-   (o/save-ontology
-    (str (stem *file*) "." (name format)))))
+   (let [file
+         (if *opt-to-std-out*
+           (.toString (java.io.File/createTempFile "bubo" (str "." (name format))))
+           (str (stem *file*) "." (name format)))]
+     (o/save-ontology file format (if *opt-to-std-out* "" nil))
+     (when *opt-to-std-out* (println (slurp file))))))
 
 ;; make defpattern add metadata?
 (defn- arity
