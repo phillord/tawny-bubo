@@ -2,6 +2,7 @@
   (:require [tawny.owl :as o]))
 
 (def ^:dynamic *script-file* nil)
+(def ^:dynamic *opt-to-std-out* nil)
 
 (defmacro entity
   "Add type information to parameters for a pattern."

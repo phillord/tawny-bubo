@@ -5,23 +5,27 @@
             [clojure.string :as s]
             [tawny.bubo.core :refer :all]))
 
+;;(use 'clojure.tools.trace)
+
 (when-not
     (.exists (io/file "sandbox"))
   (.mkdir (io/file "sandbox")))
 
 (defonce
   ^{:doc "If non-nil do not clear sandbox files."}
-  preserve-files nil)
+  preserve-files true)
 
 ;; Forms for local eval
 ;; (def preserve-files nil)
 ;; (def preserve-files true)
 
 (defn- sandbox-command [command]
-  (sh/sh
-   "../bin/bubo"
-   (str "../dev-resources/" command)
-   :dir "sandbox"))
+  (let [rtn
+        (sh/sh
+         "../bin/bubo" "script"
+         (str "../dev-resources/" command)
+         :dir "sandbox")]
+    rtn))
 
 (defn- sandbox-command-no-error
   "Run commands from dev-resources in sandbox. "
@@ -82,7 +86,8 @@
    (let [retn
          (sandbox-command command)]
      (is (not= 0 (:exit retn)))
-     (:err retn))))
+     ;; Climatic returns errors to standard out!
+     (:out retn))))
 
 
 (defn expand-out= [msg form]
@@ -103,7 +108,7 @@
   (expand-out= msg form))
 
 (deftest tawny-load
-  (is (require 'tawny.owl)))
+  (is (do (require 'tawny.owl) true)))
 
 (deftest empty-test
   (is (sandbox-command "empty.clj")))

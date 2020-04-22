@@ -28,8 +28,8 @@
   (binding [c/*opt-to-std-out* stdout]
     (clojure.main/with-bindings
       (in-ns 'user)
-      (blitz-clojure-core *ns*)
       (require '[clojure.core :as cc])
+      (blitz-clojure-core *ns*)
       (use 'tawny.bubo.core)
       (use 'tawny.bubo.util)
       (use 'tawny.owl)
