@@ -133,3 +133,7 @@
 (deftest apply-csv
   (with-files "csv-to-apply.csv"
     (is (out= "apply-csv"))))
+
+(deftest apply-xls
+  (with-files "xls-test.xlsx"
+    (is (out= "apply-xls"))))
