@@ -1,10 +1,10 @@
 (ns tawny.bubo.xls
+  (:use [dk.ative.docjure.spreadsheet])
   (:require
    [clojure.string :as str]
    [clojure.java.io :as io]
    [tawny.owl :as o]
    [tawny.pattern :as pattern]))
-(use 'dk.ative.docjure.spreadsheet)
 
 (defn- read-workbook [filename sheet]
   "Read the Excel workbook giving the file name and the sheet of interest.
