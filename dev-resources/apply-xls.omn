@@ -40,48 +40,48 @@ ObjectProperty: o:r2
         <http://www.purl.org/ontolink/tawny#name> "r2"@en
     
     
-Class: o:A
+Class: o:X
 
     Annotations: 
-        <http://www.purl.org/ontolink/tawny#name> "A"@en
+        <http://www.purl.org/ontolink/tawny#name> "X"@en
     
     SubClassOf: 
-        o:r some o:B
+        o:r some o:Z
     
     
-Class: o:A1
+Class: o:X1
 
     Annotations: 
-        <http://www.purl.org/ontolink/tawny#name> "A1"@en
+        <http://www.purl.org/ontolink/tawny#name> "X1"@en
     
     SubClassOf: 
-        o:r1 some o:B1
+        o:r1 some o:Z1
     
     
-Class: o:A2
+Class: o:X2
 
     Annotations: 
-        <http://www.purl.org/ontolink/tawny#name> "A2"@en
+        <http://www.purl.org/ontolink/tawny#name> "X2"@en
     
     SubClassOf: 
-        o:r2 some o:B2
+        o:r2 some o:Z2
     
     
-Class: o:B
+Class: o:Z
 
     Annotations: 
-        <http://www.purl.org/ontolink/tawny#name> "B"@en
+        <http://www.purl.org/ontolink/tawny#name> "Z"@en
     
     
-Class: o:B1
+Class: o:Z1
 
     Annotations: 
-        <http://www.purl.org/ontolink/tawny#name> "B1"@en
+        <http://www.purl.org/ontolink/tawny#name> "Z1"@en
     
     
-Class: o:B2
+Class: o:Z2
 
     Annotations: 
-        <http://www.purl.org/ontolink/tawny#name> "B2"@en
+        <http://www.purl.org/ontolink/tawny#name> "Z2"@en
     
     
