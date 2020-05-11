@@ -42,7 +42,11 @@
      )
 )
 
-(defn xls-apply [f filename sheet]
+(defn xls-apply [f filename
+                 & {:keys [from to sheet orientation header]
+                    :or {sheet "Sheet1"
+                         orientation :horizontal
+                         header false}}]
   (doall
    (map
     #(apply f %)

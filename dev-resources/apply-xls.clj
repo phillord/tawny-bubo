@@ -1,6 +1,5 @@
 #!/usr/bin/env bubo
 
-;(clojure.core/require 'tawny.bubo.xls)
 (cc/use 'tawny.bubo.xls)
 
 
@@ -10,28 +9,25 @@
 (defpattern xls-pattern
   [a b c & {:keys [sheet orientation from to column]
             :or {sheet "Sheet1"
-                 orintation horizontal
+                 orientation horizontal
                  from "A1"
                  to "C3"
                  column A}}]
 
  ;; This is to convert the row data into pattern as:
  ;; (owl-class a :super (some b c))
-
  (entity
    [(object-property b)
     (owl-class c)]
    (owl-class a :super (some b c)))
 
-;; This is to read one column and convert it into teir
-(when column
-  :orientation :vertical
-  (doall
-   (let [column-data
-         (tawny.bubo.xls/column-info sheet column column)]
-     (pattern/tier (first column-data) (rest column-data))))
-  )
-)
+  ;; This is to read one column and convert it into teir
+  (when column
+    :orientation :vertical
+    (doall
+     (let [column-data
+           (tawny.bubo.xls/column-info sheet column column)]
+       (pattern/tier (first column-data) (rest column-data))))))
 
 ;; (doall
 ;;  (map (intern-owl-string % (owl-class %) args)))
@@ -58,6 +54,27 @@
  (xls-pattern :sheet "Sheet3" :column :B)
  "xls-test.xlsx"
  "Sheet3")
+
+
+
+(defoproperty inGenre)
+
+(defclass Artist)
+(defclass Genre)
+
+(defpattern artist [artist genre website]
+  (entity
+   (owl-class genre :super Genre)
+   (owl-class artist
+              :super Artist (some inGenre genre)
+              :annotation (see-also website))))
+
+(xls-apply
+ artist-pattern
+ "xls-test.xlsx"
+ :sheet "Sheet2" :orientation :horiztonal
+ :from "A1" :to "C3" :header true)
+
 
 (save :omn)
 
