@@ -2,86 +2,111 @@
 ## It should not be edited by hand
 Prefix: o: <http://example.com/o#>
 Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: pattern: <http://www.w3id.org/ontolink/pattern.owl#>
 Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 Prefix: xml: <http://www.w3.org/XML/1998/namespace>
 Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+Prefix: : <http://example.com/o>
 
 
 
 Ontology: <http://example.com/o>
 
-Import: <http://www.purl.org/ontolink/tawny>
 
-Annotations: 
-    <http://www.purl.org/ontolink/tawny#name> "o"@en
-
-AnnotationProperty: <http://www.purl.org/ontolink/tawny#name>
+AnnotationProperty: rdfs:seeAlso
 
     
 Datatype: rdf:PlainLiteral
 
     
-ObjectProperty: o:r
+ObjectProperty: o:inGenre
+
+    
+Class: <http://example.com/o#1 0 AM>
 
     Annotations: 
-        <http://www.purl.org/ontolink/tawny#name> "r"@en
-    
-    
-ObjectProperty: o:r1
-
-    Annotations: 
-        <http://www.purl.org/ontolink/tawny#name> "r1"@en
-    
-    
-ObjectProperty: o:r2
-
-    Annotations: 
-        <http://www.purl.org/ontolink/tawny#name> "r2"@en
-    
-    
-Class: o:X
-
-    Annotations: 
-        <http://www.purl.org/ontolink/tawny#name> "X"@en
+        rdfs:seeAlso "www.10am.bandcamp.com/"@en
     
     SubClassOf: 
-        o:r some o:Z
+        o:Artist,
+        o:inGenre some o:Pop
     
     
-Class: o:X1
+Class: <http://example.com/o#Alice Ella>
 
     Annotations: 
-        <http://www.purl.org/ontolink/tawny#name> "X1"@en
+        rdfs:seeAlso "www.aliceella.co.uk"@en
     
     SubClassOf: 
-        o:r1 some o:Z1
+        o:Artist,
+        o:inGenre some o:Pop
     
     
-Class: o:X2
+Class: <http://example.com/o#Alina Bzhezhinska>
 
     Annotations: 
-        <http://www.purl.org/ontolink/tawny#name> "X2"@en
+        rdfs:seeAlso "www.alina-harpist.com"@en
     
     SubClassOf: 
-        o:r2 some o:Z2
+        o:Artist,
+        o:inGenre some o:Jazz
     
     
-Class: o:Z
+Class: <http://example.com/o#Alison Beattie>
 
     Annotations: 
-        <http://www.purl.org/ontolink/tawny#name> "Z"@en
+        rdfs:seeAlso "www.alisonbeattiemusic.com"@en
+    
+    SubClassOf: 
+        o:Artist,
+        o:inGenre some o:Classical
     
     
-Class: o:Z1
+Class: <http://example.com/o#Alison Rayner>
 
     Annotations: 
-        <http://www.purl.org/ontolink/tawny#name> "Z1"@en
+        rdfs:seeAlso "www.alisonrayner.com"@en
+    
+    SubClassOf: 
+        o:Artist,
+        o:inGenre some o:Jazz
     
     
-Class: o:Z2
+Class: <http://example.com/o#Artists/Group>
 
     Annotations: 
-        <http://www.purl.org/ontolink/tawny#name> "Z2"@en
+        rdfs:seeAlso "Website"@en
+    
+    SubClassOf: 
+        o:Artist,
+        o:inGenre some o:Genre
+    
+    
+Class: o:Artist
+
+    
+Class: o:Classical
+
+    SubClassOf: 
+        o:Genre
+    
+    
+Class: o:Genre
+
+    SubClassOf: 
+        o:Genre
+    
+    
+Class: o:Jazz
+
+    SubClassOf: 
+        o:Genre
+    
+    
+Class: o:Pop
+
+    SubClassOf: 
+        o:Genre
     
     

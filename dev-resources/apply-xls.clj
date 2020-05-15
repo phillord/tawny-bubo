@@ -1,9 +1,10 @@
 #!/usr/bin/env bubo
 
-(clojure.core/use 'tawny.bubo.xls)
+(cc/use 'tawny.bubo.xls)
 
 (defontology o
-  :iri "http://example.com/o")
+  :iri "http://example.com/o"
+  :noname true)
 
 ;; (defpattern xls-pattern
 ;;   [a b c & {:keys [sheet orientation from to column]
@@ -50,10 +51,10 @@
 
 (defpattern artist-pattern [artist genre website]
   (entity
-   (owl-class genre :super Genre)
-   (owl-class artist
-              :super Artist (some inGenre genre)
-              :annotation (see-also website))))
+   [(owl-class genre :super Genre)
+    (owl-class artist
+               :super Artist (some inGenre genre)
+               :annotation (see-also website))]))
 
 (xls-apply
  artist-pattern
