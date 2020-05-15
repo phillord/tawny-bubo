@@ -1,0 +1,87 @@
+## This file was created by Tawny-OWL
+## It should not be edited by hand
+Prefix: o: <http://example.com/o#>
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+
+Ontology: <http://example.com/o>
+
+Import: <http://www.purl.org/ontolink/tawny>
+
+Annotations: 
+    <http://www.purl.org/ontolink/tawny#name> "o"@en
+
+AnnotationProperty: <http://www.purl.org/ontolink/tawny#name>
+
+    
+Datatype: rdf:PlainLiteral
+
+    
+ObjectProperty: o:r
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "r"@en
+    
+    
+ObjectProperty: o:r1
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "r1"@en
+    
+    
+ObjectProperty: o:r2
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "r2"@en
+    
+    
+Class: o:X
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "X"@en
+    
+    SubClassOf: 
+        o:r some o:Z
+    
+    
+Class: o:X1
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "X1"@en
+    
+    SubClassOf: 
+        o:r1 some o:Z1
+    
+    
+Class: o:X2
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "X2"@en
+    
+    SubClassOf: 
+        o:r2 some o:Z2
+    
+    
+Class: o:Z
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "Z"@en
+    
+    
+Class: o:Z1
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "Z1"@en
+    
+    
+Class: o:Z2
+
+    Annotations: 
+        <http://www.purl.org/ontolink/tawny#name> "Z2"@en
+    
+    
