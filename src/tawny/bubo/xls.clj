@@ -7,7 +7,8 @@
    [tawny.pattern :as pattern]))
 
 (defn- read-workbook [filename sheet]
-  "Read the Excel workbook giving the file name and the sheet of interest.
+  "Read the Excel workbook horizontally giving the file name and the
+  sheet of interest.
    FILENAME: the excel file name.
    SHEET: the sheet name to read."
   (->> (load-workbook filename)
@@ -17,10 +18,17 @@
        (map cell-seq)
        (map #(map read-cell %))))
 
-;; This is the workbook variaable
-(def workbook (load-workbook "xls-test.xlsx"))
-;; This is the sheet variable
-(def sheet (select-sheet "Sheet1" workbook))
+(defn- read-workbookv [filename sheet column]
+  "Read the Excel workbook vertically giving the file name, sheet and
+  the column of interest.
+   FILENAME: the excel file name.
+   SHEET: the sheet name to read.
+   COLUMN: the column."
+  (flatten
+   (map vals
+        (->> (load-workbook filename)
+        (select-sheet sheet)
+        (select-columns{column column})))))
 
 (defn column-info [sheet & {:keys [column]}]
   "Extract the column info into a sorted set
@@ -51,6 +59,16 @@
    (map
     #(apply f %)
     (read-workbook filename sheet))))
+
+(defn xls-apply-v [f filename
+                 & {:keys [sheet column orientation header]
+                    :or {sheet "Sheet1"
+                         orientation :vertical
+                         header true}}]
+  (doall
+   (map
+    #(apply f %)
+    (read-workbookv filename sheet column))))
 
 ;; To apply the vertical reading of the sheet
 ;; (defn xls-apply [f sheet column]

@@ -56,12 +56,23 @@
                :super Artist (some inGenre genre)
                :annotation (see-also website))]))
 
-(xls-apply
- artist-pattern
- "xls-test.xlsx"
- :sheet "Sheet3" :orientation :horiztonal
- :from "A1" :to "C6" :header true)
+(defpattern column-pattern
+  "This pattern takes a columnn data and creates a tier.
+  COLUMN-VALUES: a sequence of the column data."
+  [column-values]
+  (tawny.pattern/tier (first column-values)(rest column-values)))
 
+;; (xls-apply
+;;  artist-pattern
+;;  "xls-test.xlsx"
+;;  :sheet "Sheet3" :orientation :horiztonal
+;;  :from "A1" :to "C6" :header true)
+
+;; apply the column-pattern
+(xls-apply-v
+ column-pattern
+ "xls-test.xlsx"
+ :sheet "Sheet3" :column :B :orientation :vertical :header true)
 
 (save :omn)
 
