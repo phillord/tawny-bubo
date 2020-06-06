@@ -32,12 +32,6 @@ ObjectProperty: o:hasGenre
         o:Genre
     
     
-ObjectProperty: o:inGenre
-
-    
-Class: o:Artist
-
-    
 Class: o:Classical
 
     Annotations: 

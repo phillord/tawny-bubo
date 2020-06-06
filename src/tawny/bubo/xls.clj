@@ -25,50 +25,32 @@
    SHEET: the sheet name to read.
    COLUMN: the column."
   (flatten
-   (map vals
+   (seq (map vals
         (->> (load-workbook filename)
         (select-sheet sheet)
         (select-columns{column column})))))
+  )
 
-(defn column-info [sheet & {:keys [column]}]
-  "Extract the column info into a sorted set
-  SHEET: the sheet to be extracted.
-  COLUMN: the column of interest."
-  (map vals (select-columns {column column} sheet))
-)
 
-(defn column-classes [filename sheet column]
-  "Convert the giving column data into a tier
-  FILENAME: the excel file name.
-  SHEET: the sheet to be extracted.
-  COLUMN: the column to be converted to owl classes."
-  ;(read-workbook filename sheet)
-  (doall
-   ;(read-workbook filename sheet)
-    (let [x (column-info sheet column column)]
-     (pattern/tier (first x) (rest x)))
-     )
-)
+;; (defn xls-apply [f filename
+;;                  & {:keys [from to sheet orientation header]
+;;                     :or {sheet "Sheet1"
+;;                          orientation :horizontal
+;;                          header false}}]
+;;   (doall
+;;    (map
+;;     #(apply f %)
+;;     (read-workbook filename sheet))))
 
-(defn xls-apply [f filename
-                 & {:keys [from to sheet orientation header]
-                    :or {sheet "Sheet1"
-                         orientation :horizontal
-                         header false}}]
-  (doall
-   (map
-    #(apply f %)
-    (read-workbook filename sheet))))
-
-(defn xls-apply-v [f filename
-                 & {:keys [sheet column orientation header]
-                    :or {sheet "Sheet1"
-                         orientation :vertical
-                         header true}}]
-  (doall
-   (map
-    #(apply f %)
-    (read-workbookv filename sheet column))))
+;; (defn xls-apply-v [f filename
+;;                  & {:keys [sheet column orientation header]
+;;                     :or {sheet "Sheet1"
+;;                          orientation :vertical
+;;                          header true}}]
+;;   (doall
+;;    (map
+;;     #(apply f %)
+;;     (read-workbookv filename sheet column))))
 
 ;; To apply the vertical reading of the sheet
 ;; (defn xls-apply [f sheet column]
@@ -76,3 +58,37 @@
 ;;    (map
 ;;     #(apply f %)
 ;;     (column-info sheet column column))))
+
+;;-------------
+(defn- xls-apply-h [f filename
+                    & {:keys [from to sheet header]
+                       :or {sheet "Sheet1"
+                            header false}}]
+  (doall
+   (map
+    #(apply f %)
+    (read-workbook filename sheet))))
+
+(defn- xls-apply-v [f filename
+                    & {:keys [sheet column header]
+                       :or {sheet "Sheet1"
+                            header true}}]
+  (doall
+   (map
+    #(apply f %)
+    (list (read-workbookv filename sheet column))))
+)
+
+(defn xls-apply [f filename
+                 & {:keys [sheet column orientation header]
+                    :or {sheet "Sheet1"
+                         orientation :vertical
+                         header true}}]
+
+  (case orientation
+    :horizontal (xls-apply-h f filename :sheet sheet :header
+    header)
+
+    :vertical (xls-apply-v f filename :sheet sheet
+                        :column column)))
+;;--------------

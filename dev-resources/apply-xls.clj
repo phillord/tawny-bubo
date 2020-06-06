@@ -59,8 +59,11 @@
 (defpattern column-pattern
   "This pattern takes a columnn data and creates a tier.
   COLUMN-VALUES: a sequence of the column data."
-  [column-values]
-  (tawny.pattern/tier (first column-values)(rest column-values)))
+  [& column-values]
+  (tawny.pattern/tier (cc/first column-values)(cc/rest column-values)))
+
+;; (cc/defn dump [& args]
+;;   (cc/println args))
 
 ;; (xls-apply
 ;;  artist-pattern
@@ -69,7 +72,7 @@
 ;;  :from "A1" :to "C6" :header true)
 
 ;; apply the column-pattern
-(xls-apply-v
+(xls-apply
  column-pattern
  "xls-test.xlsx"
  :sheet "Sheet3" :column :B :orientation :vertical :header true)
