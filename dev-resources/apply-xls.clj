@@ -51,9 +51,11 @@
   [& sheet-values]
   (cc/let [header (cc/first sheet-values)
            individuals (cc/flatten (cc/rest sheet-values))]
-    (cc/map owl-class header)
+    ;(cc/println "header: " header)
+    ;(cc/println "individuals: " individuals)
+    (cc/doall (cc/map owl-class header))
     ;;(cc/println individuals)
-    (cc/map individual individuals))
+    (cc/doall (cc/map individual individuals)))
 )
 
 (defpattern column-pattern
@@ -72,6 +74,11 @@
  header-indviduals
  "xls-test.xlsx"
  :sheet "Sheet1" :orientation :horizontal :header true)
+
+(xls-apply
+ header-indviduals
+ "xls-test.xlsx"
+ :sheet "Sheet2" :orientation :horizontal :header true)
 
 ;; apply the column-pattern
 (xls-apply

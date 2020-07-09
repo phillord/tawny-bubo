@@ -35,7 +35,13 @@ ObjectProperty: o:hasGenre
 ObjectProperty: o:inGenre
 
     
+Class: o:A
+
+    
 Class: o:Artist
+
+    
+Class: o:B
 
     
 Class: o:Classical
@@ -76,6 +82,57 @@ Class: o:Pop
     SubClassOf: 
         o:Genre
     
+    
+Class: o:X
+
+    
+Class: o:Y
+
+    
+Class: o:Z
+
+    
+Class: o:r
+
+    
+Individual: o:A1
+
+    
+Individual: o:A2
+
+    
+Individual: o:B1
+
+    
+Individual: o:B2
+
+    
+Individual: o:X1
+
+    
+Individual: o:X2
+
+    
+Individual: o:Y1
+
+    
+Individual: o:Y2
+
+    
+Individual: o:Y3
+
+    
+Individual: o:Z1
+
+    
+Individual: o:Z2
+
+    
+Individual: o:r1
+
+    
+Individual: o:r2
+
     
 Individual: _:genid2147483648
 
