@@ -2,6 +2,7 @@
 
 (cc/use 'tawny.bubo.xls)
 
+;; Define an ontology to save all entities in it.
 (defontology o
   :iri "http://example.com/o"
   :noname true)
@@ -32,18 +33,6 @@
 ;; (doall
 ;;  (map (intern-owl-string % (owl-class %) args)))
 
-;; Apply the pattern horizontally
-;; (xls-apply
-;;  (xls-pattern :sheet "Sheet2" :orientaion :horizontal)
-;;  "xls-test.xlsx"
-;;  )
-
-;; Apply the pattern vertically on the column B in Sheet3
-;; (xls-apply
-;;  (xls-pattern :sheet "Sheet3" :column :B)
-;;  "xls-test.xlsx"
-;;  "Sheet3")
-
 (defoproperty inGenre)
 
 (defclass Artist)
@@ -56,26 +45,48 @@
                :super Artist (some inGenre genre)
                :annotation (see-also website))]))
 
+(defpattern header-indviduals
+  "To define the header of the table as classes and the rest as individuals.
+  SHEET-VALUES the valuse extracted off the sheet in the excel file."
+  [& sheet-values]
+  (cc/let [header (cc/first sheet-values)
+           individuals (cc/flatten (cc/rest sheet-values))]
+    (cc/map owl-class header)
+    ;;(cc/println individuals)
+    (cc/map individual individuals))
+)
+
 (defpattern column-pattern
   "This pattern takes a columnn data and creates a tier.
   COLUMN-VALUES: a sequence of the column data."
   [& column-values]
-  (tawny.pattern/tier (cc/first column-values)(cc/rest column-values)))
+  (tawny.pattern/tier (cc/first column-values)(cc/rest
+  column-values)))
 
-;; (cc/defn dump [& args]
-;;   (cc/println args))
+ ;; (cc/defn dump [& args]
+ ;;   (cc/println args))
 
-;; (xls-apply
-;;  artist-pattern
-;;  "xls-test.xlsx"
-;;  :sheet "Sheet3" :orientation :horiztonal
-;;  :from "A1" :to "C6" :header true)
+;; apply header-individuals pattern where the header values are
+;; classes and the rest are inviduals
+(xls-apply
+ header-indviduals
+ "xls-test.xlsx"
+ :sheet "Sheet1" :orientation :horizontal :header true)
 
 ;; apply the column-pattern
 (xls-apply
  column-pattern
  "xls-test.xlsx"
  :sheet "Sheet3" :column :B :orientation :vertical :header true)
+
+;; (xls-apply
+;;  body-indviduals
+;;  "xls-test.xlsx"
+;;  :sheet "Sheet1" :orientation :horizontal :header header-classes)
+
+;; (xls-apply
+;;  (cc/partial my-ontology column-pattern)
+;;  "xls-test.xlsx" :sheet "Sheet 4")
 
 (save :omn)
 
