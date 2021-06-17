@@ -1,142 +1,16 @@
 ## This file was created by Tawny-OWL
 ## It should not be edited by hand
-Prefix: o: <http://example.com/o#>
+Prefix: icbo: <http://example.com/icbo#>
 Prefix: owl: <http://www.w3.org/2002/07/owl#>
 Prefix: pattern: <http://www.w3id.org/ontolink/pattern.owl#>
 Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 Prefix: xml: <http://www.w3.org/XML/1998/namespace>
 Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
-Prefix: : <http://example.com/o>
+Prefix: : <http://example.com/icbo>
 
 
 
-Ontology: <http://example.com/o>
+Ontology: <http://example.com/icbo>
 
-
-AnnotationProperty: pattern:facetvalue
-
-    
-AnnotationProperty: pattern:inpattern
-
-    
-ObjectProperty: o:hasGenre
-
-    Annotations: 
-        pattern:inpattern _:genid2147483648
-    
-    Characteristics: 
-        Functional
-    
-    Range: 
-        o:Genre
-    
-    
-ObjectProperty: o:inGenre
-
-    
-Class: o:A
-
-    
-Class: o:Artist
-
-    
-Class: o:B
-
-    
-Class: o:Classical
-
-    Annotations: 
-        pattern:facetvalue <http://example.com/o#hasGenre>,
-        pattern:inpattern _:genid2147483648
-    
-    SubClassOf: 
-        o:Genre
-    
-    
-Class: o:Genre
-
-    Annotations: 
-        pattern:inpattern _:genid2147483648
-    
-    EquivalentTo: 
-        o:Classical or o:Jazz or o:Pop
-    
-    
-Class: o:Jazz
-
-    Annotations: 
-        pattern:facetvalue <http://example.com/o#hasGenre>,
-        pattern:inpattern _:genid2147483648
-    
-    SubClassOf: 
-        o:Genre
-    
-    
-Class: o:Pop
-
-    Annotations: 
-        pattern:facetvalue <http://example.com/o#hasGenre>,
-        pattern:inpattern _:genid2147483648
-    
-    SubClassOf: 
-        o:Genre
-    
-    
-Class: o:X
-
-    
-Class: o:Y
-
-    
-Class: o:Z
-
-    
-Class: o:r
-
-    
-Individual: o:A1
-
-    
-Individual: o:A2
-
-    
-Individual: o:B1
-
-    
-Individual: o:B2
-
-    
-Individual: o:X1
-
-    
-Individual: o:X2
-
-    
-Individual: o:Y1
-
-    
-Individual: o:Y2
-
-    
-Individual: o:Y3
-
-    
-Individual: o:Z1
-
-    
-Individual: o:Z2
-
-    
-Individual: o:r1
-
-    
-Individual: o:r2
-
-    
-Individual: _:genid2147483648
-
-    
-DisjointClasses: 
-    o:Classical,o:Jazz,o:Pop
 
