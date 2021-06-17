@@ -8,6 +8,7 @@
                  [org.slf4j/slf4j-simple "1.7.28"]
                  [say-cheez "0.2.0"]
                  ;;[org.clojure/tools.trace "0.7.10"]
+                 [dk.ative/docjure "1.10.0"]
                  ]
 
   :license {:name "LGPL"

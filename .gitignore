@@ -5,3 +5,4 @@
 /target
 /boot-test/apply-csv.clj
 /bin
+*.xlsx
