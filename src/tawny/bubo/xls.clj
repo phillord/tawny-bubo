@@ -15,7 +15,8 @@
    [clojure.string :as str]
    [clojure.java.io :as io]
    [tawny.owl :as o]
-   [tawny.pattern :as pattern]))
+   [tawny.pattern :as pattern]
+   [tawny.read :as read]))
 
 (defn- read-workbook [filename sheet]
   "Read the Excel workbook horizontally giving the file name and the
@@ -35,12 +36,15 @@
    FILENAME: the excel file name.
    SHEET: the sheet name to read.
    COLUMN: the column."
+
+  (map read/stop-characters-transform ;to remove spaces
   (flatten
+   ;(map read/stop-characters-transform
    (map vals
         (->> (load-workbook filename)
         (select-sheet sheet)
-        (select-columns{column column}))))
-  )
+        (select-columns{column column})))))
+ )
 
 ;;-------------
 (defn- xls-apply-h
@@ -81,7 +85,7 @@
    (map
     #(apply f %)
      ;; returns list of column data
-     (list (read-workbookv filename sheet column))))
+    (list (read-workbookv filename sheet column))))
 )
 
 (defn xls-apply
