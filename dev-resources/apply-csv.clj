@@ -12,12 +12,6 @@
        (owl-class b)]
     (owl-class a :super (some r b))))
 
-(clojure.core/defn pattern [a r b]
-  (clojure.core/let
-      [r (object-property r)
-       b (owl-class b)]
-    (owl-class a :super (some r b))))
-
 (csv-apply
  pattern
  "csv-to-apply.csv")
