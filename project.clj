@@ -3,10 +3,11 @@
   :dependencies [[cli-matic "0.3.11"]
                  [org.clojure/clojure "1.10.1"]
                  [org.clojure/data.csv "0.1.4"]
-                 [uk.org.russet/tawny-owl "2.0.3"
+                 [uk.org.russet/tawny-owl "2.3.3"
                   :exclusions [[org.slf4j/slf4j-nop]]]
                  [org.slf4j/slf4j-simple "1.7.28"]
                  [say-cheez "0.2.0"]
+                 [clj-commons/pomegranate "1.2.0"]
                  ;;[org.clojure/tools.trace "0.7.10"]
                  ]
 

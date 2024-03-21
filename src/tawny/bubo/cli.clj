@@ -5,8 +5,12 @@
    [clojure.main]
    [clojure.string]
    [say-cheez.core]
-   [tawny.bubo.core :as c])
+   [tawny.bubo.core :as c]
+   [cemerick.pomegranate]
+   )
   (:gen-class))
+
+(def cmd-args nil)
 
 (defn- stem [filename]
   (first
@@ -55,6 +59,7 @@
    })
 
 (defn -main[& args]
+  (alter-var-root (var cmd-args) (fn [_] args))
   (run-cmd
    (if (or
         ;; No args should give help
